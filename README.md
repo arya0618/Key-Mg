@@ -1,6 +1,6 @@
-# Task Managment App
+# Token Managment App
 
-This repository contains two microservices (`user-service` and `task-service`) built with Nest.js. Additionally, there's a Docker Compose file for setting up a MongoDB database.
+This repository contains two microservices (`key-manage-service` and `token-service`) built with Nest.js.
 
 ## Getting Started
 
@@ -15,25 +15,6 @@ This repository contains two microservices (`user-service` and `task-service`) b
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/arya0618/task-mg.git
-   cd task-mg
+   git clone https://github.com/arya0618/Key-Mg.git
+   cd Key-Mg
 
-1. Start database server
-
-   ```bash
-   cd docker
-   docker-compose up -d
-
-2. User-service
-
-   ```bash
-   cd user-service
-   npm install
-   npm run start
-
-3. Task-service
-
-   ```bash
-   cd task-service
-   npm install
-   npm run start

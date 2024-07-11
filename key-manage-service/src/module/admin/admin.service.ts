@@ -24,7 +24,15 @@ export class AdminService {
     }
   }
 
+  async findOne(username: string): Promise<User | undefined> {
+    return this.userModel.findOne({ username }).exec();
+  }
 
+  async create(user: User): Promise<User> {
+    const createdUser = new this.userModel(user);
+    return createdUser.save();
+  }
+  
 /**
  * create key
  */

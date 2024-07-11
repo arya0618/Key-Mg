@@ -36,7 +36,7 @@ async createKey(createKeyDto: AddKeyDto): Promise<Key> {
   console.log("key <<<<< encodoe",key)
   const createdKey = new this.keyModel(createKeyDto);
   createdKey.key=key
-  createdKey.issuedDate = new Date();
+ 
   await createdKey.save();
   //this.redisService.publish('key-created', JSON.stringify(createdKey));
   return createdKey;

@@ -8,6 +8,7 @@ import { RolesGuard } from 'src/helpers/roles/roles.guards';
 import { PassportModule } from '@nestjs/passport';
 import { KeyService } from './key.service';
 import { UserSchema } from './entity/user.entity';
+import { StartupService } from './admin.startup.service';
 
 @Module({
   controllers: [AdminController],
@@ -16,6 +17,6 @@ import { UserSchema } from './entity/user.entity';
     AdminModule,
     MongooseModule.forFeature([{ name: 'Key', schema: KeySchema },{ name: 'User', schema: UserSchema }]),
   ],
-  providers: [AdminService, RolesGuard,KeyService],
+  providers: [AdminService, RolesGuard,KeyService,StartupService],
 })
 export class AdminModule {}
