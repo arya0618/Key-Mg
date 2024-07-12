@@ -3,5 +3,5 @@
 key-manage-service/node_modules
 key-manage-service/dist
 
-web3-token-service/node_modules
-web3-token-service/dist
+# web3-token-service/node_modules
+# web3-token-service/dist

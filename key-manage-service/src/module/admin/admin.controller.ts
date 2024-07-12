@@ -19,6 +19,7 @@ import { AdminService } from './admin.service';
 import { Roles } from '../../helpers/roles/role.decorators';
 import { RolesGuard } from 'src/helpers/roles/roles.guards';
 import { KeyService } from './key.service';
+import { UpdateKeyDto } from './dto/updateKey.dto';
 @ApiTags(`${constants.ADMIN_CONTROLLER}-API`)
 @Controller(constants.ADMIN_CONTROLLER)
 export class AdminController {
@@ -54,8 +55,8 @@ export class AdminController {
     description: 'Json structure for key object',
   })
   @Post('/updatekey')
-  updateCreate(@Body() addKeyDto: AddKeyDto): Promise<object> {
-    return this.keyService.createKey(addKeyDto)
+  updateCreate(@Body() updateKeyDto: UpdateKeyDto): Promise<object> {
+    return this.keyService.updateKey(updateKeyDto)
   }
 
 

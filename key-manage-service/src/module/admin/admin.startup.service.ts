@@ -23,7 +23,7 @@ export class StartupService implements OnModuleInit {
       await this.adminService.create({
         userName: 'user',
         password: await bcrypt.hash('1234', 10),
-        role: 'user',
+        role: 'client',
       });
       console.log('Sample user created');
     }
