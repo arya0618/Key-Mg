@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { User } from './entity/user.entity';
+import { LoginDto } from './dto/login.dto';
 
 
 // Service File for Manage Task Listing
@@ -12,6 +13,8 @@ export class AdminService {
     @InjectModel('User')
     private userModel: mongoose.Model<User>,
   ) {}
+
+
   /**
    * get Task list  information
    */
@@ -33,13 +36,13 @@ export class AdminService {
     return createdUser.save();
   }
   
-/**
- * create key
- */
-
-
-
-
-
+  async login(login: LoginDto): Promise<any> {
+    const admin = this.userModel.findOne({ userName:login.username })
+if(!admin){
+  return "no Admin found"
+}
+    return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNTE2MjM5MDIyfQ.3k0Uixf6XS_QDq7VUEEmaZph_HZLqGdBhBpUjT4m7mg"
+    
+  }
 
   }

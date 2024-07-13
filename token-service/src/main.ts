@@ -5,10 +5,9 @@ import { AppModule } from './module/app/app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { constants } from './helpers/constants';
-// import { createClient } from 'redis';
+
 async function bootstrap() {
   const logger = new Logger();
-
   const app = await NestFactory.create(AppModule);
   app.enableCors();
   app.useGlobalPipes(new ValidationPipe());
@@ -22,7 +21,8 @@ async function bootstrap() {
 
   const port = process.env.PORT;
  
-  await  app.listen(port, () => logger.debug(` Key Manage Service Server listen on port ${port}  `));
+  await  app.listen(port, () => logger.debug(` Token Service Server listen on port ${port}  `));
+  
  
 }
 bootstrap();

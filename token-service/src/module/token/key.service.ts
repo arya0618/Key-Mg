@@ -8,7 +8,7 @@ import { AddKeyDto } from './dto/createKey.dto';
 import { RedisService } from '../redis/redis.service';
 import { UpdateKeyDto } from './dto/updateKey.dto';
 import { channels } from 'src/helpers/constants';
-import { UpdateActiveDto } from './dto/updateActive.dto';
+// import { RedisService } from './redis.service';
 
 // Service File for Manage Task Listing
 @Injectable()
@@ -61,20 +61,5 @@ async updateKey(updateKeyDto: UpdateKeyDto): Promise<Key> {
   this.redisService.publish(channels.DELETE, JSON.stringify(updatedKey));
   return updatedKey;
 }
-
-
-
-async updateLimitByUser(updateActiveDto: UpdateActiveDto): Promise<Key> {
- // let isActive :string = updateActiveDto.isActive
-  console.log("update updateActiveDto <<<<< key",updateActiveDto.isActive)
-  await this.keyModel.updateOne(
-    { "key": updateActiveDto.key },
-    { $set: { isActive: updateActiveDto.isActive } }
-  );
-  const updatedKey = await this.keyModel.findOne({ "key":updateActiveDto.key }).exec();
-  this.redisService.publish(channels.DELETE, JSON.stringify(updatedKey));
-  return ;
-}
-
-
+ 
 }
